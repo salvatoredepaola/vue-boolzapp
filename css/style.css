@@ -1,0 +1,48 @@
+
+body{
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0,150,136,1) 130px, rgba(218,219,211,1) 130px);
+}
+
+.my_vh100{
+    height: 100vh;
+}
+
+.my_bg-white{
+    background-color: #eaeaea;
+}
+.my_bg-whiter{
+    background-color: #ffff;
+}
+.my_bg-azure{
+    background-color: #8edafc;
+}
+
+.my_avatar{
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.my_h70{
+    height: 70px;
+}
+.my_h50{
+    height: 50px;
+}
+.my_input-group-text{
+    display: flex;
+    align-items: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #e9ecef;
+}
+.my_form-control{
+    width: 100%;
+
+}
