@@ -7,6 +7,23 @@ body{
 .my_vh100{
     height: 100vh;
 }
+.my_w100{
+    width: 100%;
+}
+.my_h70{
+    height: 70px;
+}
+.my_h50{
+    height: 50px;
+}
+.my_p12{
+    padding-left: 8px;
+    padding-right: 20px;
+}
+.my_fs-12{
+    font-size: 12px;
+}
+
 
 .my_bg-white{
     background-color: #eaeaea;
@@ -24,12 +41,7 @@ body{
     width: 50px;
     height: 50px;
 }
-.my_h70{
-    height: 70px;
-}
-.my_h50{
-    height: 50px;
-}
+
 .my_input-group-text{
     display: flex;
     align-items: center;
@@ -44,5 +56,15 @@ body{
 }
 .my_form-control{
     width: 100%;
-
+    border: 0px;
+}
+input:focus{
+    outline: none;
+}
+.my_hover{
+    background-color: #bebebe;
+}
+.my_overflow{
+    max-height: 550px;
+    overflow-y: auto;
 }
