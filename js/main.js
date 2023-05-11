@@ -6,7 +6,7 @@ createApp({
                 search: "",
                 messaggio: "",
                 messaggioSuSchermo: [
-
+                    {testo: ''}
                 ],
                 contatti: [
                     {
@@ -67,8 +67,12 @@ createApp({
             this.messaggio = "";
         },
         messaggioScritto() {
-            let messaggio = this.messaggio
+            let messaggio = {
+                testo: this.messaggio,
+            }
+            
             this.messaggioSuSchermo.push(messaggio);
+            this.messaggio = ""
         }
     }
 }).mount('#app')

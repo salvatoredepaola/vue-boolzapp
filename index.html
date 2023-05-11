@@ -136,13 +136,12 @@
                     </div>
                     <div class="row my_h100 p-5" >
                         <div class="col">
-                            <!-- <div class="row inviato">
+                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="row inviato">
                                 <div class="col d-flex messaggio bg-inviato">
-                                    <p class="m-0">adaddawadad daaadadd dadada</p>
-
+                                    <p class="m-0">{{messaggi.testo}}</p>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col d-flex messaggio ricevuto">
                                     <p class="m-0">adaddawadad daaadadd dadada</p>
                                 </div>
@@ -155,7 +154,7 @@
                                 <a href=""><i class="fa-regular fa-face-smile" style="color: #b1b1b1;"></i></a>
                             </div>
                             <div class="d-flex my_w100">
-                                <input v-model="messaggio" @keyUp.enter="testovuoto" class="fs-5 my_bg-white my_form-control" type="text">
+                                <input v-model="messaggio" @keyUp.enter="messaggioScritto()" class="fs-5 my_bg-white my_form-control" type="text">
                             </div>
                             <div class="d-flex align-items-center ms-4 me-4">
                                 <a href=""><i class="fa-solid fa-microphone" style="color: #b1b1b1;"></i></i></a>
