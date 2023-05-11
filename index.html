@@ -135,17 +135,17 @@
                         </div>
                     </div>
                     <div class="row my_h100 p-5" >
-                        <div class="col">
-                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="row inviato">
-                                <div class="col d-flex messaggio bg-inviato">
-                                    <p class="m-0">{{messaggi.testo}}</p>
+                        <div class="col d-flex flex-column">
+                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="  mb-1 row ">
+                                <div class=" col d-flex  justify-content-end  ">
+                                    <p class="messaggio rounded bg-inviato py-1 px-2 bg-inviato m-0">{{messaggi.testo}}</p>
                                 </div>
                             </div>
-                            <!-- <div class="row">
-                                <div class="col d-flex messaggio ricevuto">
-                                    <p class="m-0">adaddawadad daaadadd dadada</p>
+                            <div class="mb-1 row">
+                                <div class=" col d-flex ">
+                                    <p class="messaggio rounded bg-inviato py-1 px-2 ricevuto m-0">{{risposta}}</p>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="row my_h70 my_bg-white">

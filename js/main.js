@@ -4,9 +4,10 @@ createApp({
         data() {
             return {
                 search: "",
+                value: false,
+                risposta: "ok",
                 messaggio: "",
                 messaggioSuSchermo: [
-                    {testo: ''}
                 ],
                 contatti: [
                     {
@@ -67,12 +68,16 @@ createApp({
             this.messaggio = "";
         },
         messaggioScritto() {
-            let messaggio = {
-                testo: this.messaggio,
+            if (this.messaggio.length <= 0) {
+                
+            } else {
+                let messaggio = {
+                    testo: this.messaggio,
+                }
+                this.messaggioSuSchermo.push(messaggio);
+
             }
-            
-            this.messaggioSuSchermo.push(messaggio);
-            this.messaggio = ""
+            this.messaggio = "";
         }
     }
 }).mount('#app')

@@ -79,16 +79,16 @@ input:focus{
     background-image: url("../img/mine.jpg");
 }
 .messaggio{
-    width: max-content;
-    max-width: 200px;
-    height: max-content;
+    max-width: 300px;
+    word-break: break-all;
 }
 .inviato{
-    justify-content: flex-end;
+    align-self: flex-end;
 }
 .bg-inviato{
-    background-color: red;
+    color: white;
+    background-color: #009688;
 }
 .ricevuto{
-    background-color: gold;
+    background-color: gray;
 }
