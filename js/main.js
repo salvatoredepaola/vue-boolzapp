@@ -5,6 +5,9 @@ createApp({
             return {
                 search: "",
                 messaggio: "",
+                messaggioSuSchermo: [
+
+                ],
                 contatti: [
                     {
                         image: 'img/avatar_1.jpg',
@@ -63,5 +66,9 @@ createApp({
             this.search = "";
             this.messaggio = "";
         },
+        messaggioScritto() {
+            let messaggio = this.messaggio
+            this.messaggioSuSchermo.push(messaggio);
+        }
     }
 }).mount('#app')

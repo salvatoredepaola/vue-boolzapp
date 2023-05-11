@@ -78,3 +78,17 @@ input:focus{
 #chat{
     background-image: url("../img/mine.jpg");
 }
+.messaggio{
+    width: max-content;
+    max-width: 200px;
+    height: max-content;
+}
+.inviato{
+    justify-content: flex-end;
+}
+.bg-inviato{
+    background-color: red;
+}
+.ricevuto{
+    background-color: gold;
+}
