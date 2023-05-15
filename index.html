@@ -136,12 +136,25 @@
                     </div>
                     <div class="row my_h100 p-5" >
                         <div class="col d-flex flex-column">
-                            <div v-for="message in contacts[currentChat].messages" :class="getMessageClass(message)" class="mb-1 row messaggio rounded py-1 px-2 m-0">
-                                {{message.message}}
+                            <div v-for="(message, i) in contacts[currentChat].messages" :class="getMessageClass(message)" class="dropdown d-flex rounded mb-1 messaggio">
+                                <button class=" border-0 btn my_white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{message.message}}
+                                </button>
+                                <ul v-if="message.status == 'sent'" class="dropdown-menu my_dropDown">
+                                    <li><a @click="lastMessage(i)" class="dropdown-item" href="#">Elimina</a></li>
+                                </ul>
                             </div>
-                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="  mb-1 row messaggio rounded py-1 px-2 inviato m-0">
+                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="dropdown d-flex inviato rounded mb-1 messaggio">
+                                <button class="btn my_white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{messaggi.testo}}
+                                </button>
+                                <ul class="dropdown-menu my_dropDown">
+                                    <li><a @click="lastMessage(i)" class="dropdown-item" href="#">Action</a></li>
+                                </ul>
+                            </div>
+                            <!-- <div v-for="(messaggi,i) in messaggioSuSchermo" class="  mb-1 row messaggio rounded py-1 px-2 inviato m-0">
                                 {{messaggi.testo}}                       
-                            </div>
+                            </div> -->
                             <div v-if="messaggioSuSchermo.length > 0" class="mb-1 row messaggio rounded py-1 px-2 m-0 ricevuto">
                                 {{risposta}}
                             </div>

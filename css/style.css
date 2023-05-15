@@ -93,3 +93,11 @@ input:focus{
     background-color: rgb(160, 160, 160);
     color: white;
 }
+
+.my_white{
+    color: white;
+}
+.my_dropDown {
+    right: 0 !important;
+    left: auto !important;
+}

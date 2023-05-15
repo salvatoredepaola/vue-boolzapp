@@ -205,8 +205,8 @@ createApp({
             }
             return classe
         },
-        lastMessage () {
-
+        lastMessage (i) {
+            this.contacts[0].messages.splice(i, 1);
         }
 
     },
