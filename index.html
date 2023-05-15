@@ -71,26 +71,26 @@
                     </div>
                     <div class="row">
                         <div class="col my_overflow" >
-                            <div v-for="(persone,i) in contatti" class="row my_h70">
+                            <div v-for="(persone,i) in contacts" :class="(currentChat == i ) ? 'row my_h70 my_hover' : 'row my_h70' " @click="selezionaChat(i)">
                                 <div class="col d-flex justify-content-between">
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center my_p12">
-                                            <img class="my_avatar" :src="persone.image" alt="">
+                                            <img class="my_avatar" :src="persone.avatar" alt="">
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="row">
                                                 <div>
-                                                    <p class="m-0 fw-semibold">{{persone.nome}}</p>
+                                                    <p class="m-0 fw-semibold">{{persone.name}}</p>
                                                 </div>
                                                 <div>
-                                                    <p class="m-0 my_fs-12 text-muted">{{persone.ultimoMessaggio}}</p>
+                                                    <p class="m-0 my_fs-12 text-muted" >{{persone.messages[1].message}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     
                                     <div class="d-flex">
-                                        <p class="my_fs-12 text-muted">{{persone.ultimoAccesso}}</p>
+                                        <p class="my_fs-12 text-muted">{{contacts[i].messages[0].date}}</p>
                                     </div>
                                     
                                 </div>
@@ -106,15 +106,15 @@
                                 <div class="col d-flex justify-content-between">
                                     <div class="d-flex">
                                         <div class="d-flex align-items-center my_p12">
-                                            <img class="my_avatar" src="./img/avatar_1.jpg" alt="">
+                                            <img class="my_avatar" :src="contacts[currentChat].avatar" alt="">
                                         </div>
                                         <div class="d-flex align-items-center">
                                             <div class="row">
                                                 <div>
-                                                    <p class="m-0 fw-semibold">Michele</p>
+                                                    <p class="m-0 fw-semibold">{{contacts[currentChat].name}}</p>
                                                 </div>
                                                 <div>
-                                                    <p class="m-0 my_fs-12 text-muted">Ultimo accesso oggi alle 12:00</p>
+                                                    <p class="m-0 my_fs-12 text-muted">Ultimo accesso: {{contacts[currentChat].messages[1].date}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -136,25 +136,24 @@
                     </div>
                     <div class="row my_h100 p-5" >
                         <div class="col d-flex flex-column">
-                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="  mb-1 row ">
-                                <div class=" col d-flex  justify-content-end  ">
-                                    <p class="messaggio rounded bg-inviato py-1 px-2 bg-inviato m-0">{{messaggi.testo}}</p>
-                                </div>
+                            <div v-for="message in contacts[currentChat].messages" :class="getMessageClass(message)" class="mb-1 row messaggio rounded py-1 px-2 m-0">
+                                {{message.message}}
                             </div>
-                            <div class="mb-1 row">
-                                <div class=" col d-flex ">
-                                    <p class="messaggio rounded bg-inviato py-1 px-2 ricevuto m-0">{{risposta}}</p>
-                                </div>
+                            <div v-for="(messaggi,i) in messaggioSuSchermo" class="  mb-1 row messaggio rounded py-1 px-2 inviato m-0">
+                                {{messaggi.testo}}                       
+                            </div>
+                            <div v-if="messaggioSuSchermo.length > 0" class="mb-1 row messaggio rounded py-1 px-2 m-0 ricevuto">
+                                {{risposta}}
                             </div>
                         </div>
                     </div>
-                    <div class="row my_h70 my_bg-white">
+                    <div class="row my_h70 my_bg-whiter">
                         <div class="col d-flex fs-4">
                             <div class="d-flex align-items-center ms-4 me-4">
                                 <a href=""><i class="fa-regular fa-face-smile" style="color: #b1b1b1;"></i></a>
                             </div>
                             <div class="d-flex my_w100">
-                                <input v-model="messaggio" @keyUp.enter="messaggioScritto()" class="fs-5 my_bg-white my_form-control" type="text">
+                                <input v-model="messaggio" @keyUp.enter="messaggioScritto(), testovuoto()" class="fs-5 my_bg-whiter my_form-control" type="text">
                             </div>
                             <div class="d-flex align-items-center ms-4 me-4">
                                 <a href=""><i class="fa-solid fa-microphone" style="color: #b1b1b1;"></i></i></a>

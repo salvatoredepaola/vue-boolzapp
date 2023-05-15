@@ -3,63 +3,178 @@ const { createApp } = Vue
 createApp({
         data() {
             return {
+                last: 0,
+                currentChat: 0,
                 search: "",
                 value: false,
                 risposta: "ok",
                 messaggio: "",
                 messaggioSuSchermo: [
                 ],
-                contatti: [
+                contacts: [
                     {
-                        image: 'img/avatar_1.jpg',
-                        nome: 'Michele',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00',
+                        name: 'Michele',
+                        avatar: './img/avatar_1.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '10/01/2020 15:30:55',
+                                message: 'Hai portato a spasso il cane?',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 15:50:00',
+                                message: 'Ricordati di stendere i panni',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 16:15:22',
+                                message: 'Tutto fatto!',
+                                status: 'received'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_2.jpg',
-                        nome: 'fabio',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
-
+                        name: 'Fabio',
+                        avatar: './img/avatar_2.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '20/03/2020 16:30:00',
+                                message: 'Ciao come stai?',
+                                status: 'sent'
+                            },
+                            {
+                                date: '20/03/2020 16:30:55',
+                                message: 'Bene grazie! Stasera ci vediamo?',
+                                status: 'received'
+                            },
+                            {
+                                date: '20/03/2020 16:35:00',
+                                message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                                status: 'sent'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_3.jpg',
-                        nome: 'Samuele',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
+                        name: 'Samuele',
+                        avatar: './img/avatar_3.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '28/03/2020 10:10:40',
+                                message: 'La Marianna va in campagna',
+                                status: 'received'
+                            },
+                            {
+                                date: '28/03/2020 10:20:10',
+                                message: 'Sicuro di non aver sbagliato chat?',
+                                status: 'sent'
+                            },
+                            {
+                                date: '28/03/2020 16:15:22',
+                                message: 'Ah scusa!',
+                                status: 'received'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_4.jpg',
-                        nome: 'Alessandro B.',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
+                        name: 'Alessandro B.',
+                        avatar: './img/avatar_4.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '10/01/2020 15:30:55',
+                                message: 'Lo sai che ha aperto una nuova pizzeria?',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 15:50:00',
+                                message: 'Si, ma preferirei andare al cinema',
+                                status: 'received'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_5.jpg',
-                        nome: 'lessandro L.',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
+                        name: 'Alessandro L.',
+                        avatar: './img/avatar_5.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '10/01/2020 15:30:55',
+                                message: 'Ricordati di chiamare la nonna',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 15:50:00',
+                                message: 'Va bene, stasera la sento',
+                                status: 'received'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_6.jpg',
-                        nome: 'Claudia',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
+                        name: 'Claudia',
+                        avatar: './img/avatar_5.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '10/01/2020 15:30:55',
+                                message: 'Ciao Claudia, hai novità?',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 15:50:00',
+                                message: 'Non ancora',
+                                status: 'received'
+                            },
+                            {
+                                date: '10/01/2020 15:51:00',
+                                message: 'Nessuna nuova, buona nuova',
+                                status: 'sent'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_7.jpg',
-                        nome: 'Federico',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
+                        name: 'Federico',
+                        avatar: './img/avatar_7.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '10/01/2020 15:30:55',
+                                message: 'Fai gli auguri a Martina che è il suo compleanno!',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 15:50:00',
+                                message: 'Grazie per avermelo ricordato, le scrivo subito!',
+                                status: 'received'
+                            }
+                        ],
                     },
                     {
-                        image: 'img/avatar_8.jpg',
-                        nome: 'Davide',
-                        ultimoMessaggio: 'Ultimo messaggio inviato',
-                        ultimoAccesso: '12:00', 
-                    },
+                        name: 'Davide',
+                        avatar: './img/avatar_8.jpg',
+                        visible: true,
+                        messages: [
+                            {
+                                date: '10/01/2020 15:30:55',
+                                message: 'Ciao, andiamo a mangiare la pizza stasera?',
+                                status: 'received'
+                            },
+                            {
+                                date: '10/01/2020 15:50:00',
+                                message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
+                                status: 'sent'
+                            },
+                            {
+                                date: '10/01/2020 15:51:00',
+                                message: 'OK!!',
+                                status: 'received'
+                            }
+                        ],
+                    }
                 ]
+                
         }
     },
     methods: {
@@ -75,9 +190,24 @@ createApp({
                     testo: this.messaggio,
                 }
                 this.messaggioSuSchermo.push(messaggio);
-
             }
-            this.messaggio = "";
+        },
+        selezionaChat(i) {
+            this.currentChat = i;
+            this.messaggioSuSchermo.pop(this.messaggio)
+            console.log(i);
+        },
+        getMessageClass(message) {
+            let classe = "ricevuto";
+
+            if (message.status == "sent") {
+                classe = "inviato"
+            }
+            return classe
+        },
+        lastMessage () {
+
         }
-    }
+
+    },
 }).mount('#app')

@@ -1,7 +1,8 @@
 
 body{
     height: 100vh;
-    background: linear-gradient(180deg, rgba(0,150,136,1) 130px, rgba(218,219,211,1) 130px);
+    background: rgb(0,150,136);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 17%, rgba(218,219,211,1) 17%, rgba(218,219,211,1) 100%);
 }
 
 .my_vh100{
@@ -68,27 +69,27 @@ input:focus{
     outline: none;
 }
 .my_hover{
-    background-color: #bebebe;
+    background-color: #eeeeee;
 }
 .my_overflow{
     overflow-y: auto;
-    height: 600px;
 }
 
 #chat{
     background-image: url("../img/mine.jpg");
 }
 .messaggio{
+    width: fit-content;
     max-width: 300px;
     word-break: break-all;
 }
 .inviato{
     align-self: flex-end;
-}
-.bg-inviato{
     color: white;
     background-color: #009688;
 }
+
 .ricevuto{
-    background-color: gray;
+    background-color: rgb(160, 160, 160);
+    color: white;
 }
